@@ -18,7 +18,6 @@ export class AdminComponent implements OnInit{
   mostarSideNav: boolean = false;
 
   ngOnInit(): void {
-
     this.getScreenWidth = window.innerWidth;
       this.getScreenHeight = window.innerHeight;
   }
@@ -31,6 +30,16 @@ export class AdminComponent implements OnInit{
     this.getScreenWidth <= 1169 ? this.mostarSideNav=true : this.mostarSideNav=false;
   
   }
+
+  firstFormGroup = this._formBuilder.group({
+    nombreAdmin: ['', Validators.required],
+    cedulaAdmin: ['', Validators.required,],
+    direccionAdmin: ['', Validators.required],
+    CelularAdmin: ['', Validators.required,],
+    CorreoAdmin: ['', Validators.required],
+    ContrasenaAdmin: ['', Validators.required,],
+    ConfirmacionAdmin: ['', Validators.required],
+  });
  
 
 }
