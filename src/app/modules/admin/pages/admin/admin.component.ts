@@ -10,22 +10,12 @@ import { AdminServiceService } from '../../services/admin.service.service';
 })
 export class AdminComponent implements OnInit{
 
-  createAdministrador: FormGroup;
+  createAdministrador!: FormGroup;
   // submited = false;
   mode = new FormControl('over' as MatDrawerMode);
   shouldRun = /(^|.)(stackblitz|webcontainer).(io|com)$/.test(window.location.host);
 
-  constructor(private _formBuilder: FormBuilder, private admiService: AdminServiceService) {
-    this.createAdministrador = this._formBuilder.group({
-      nombre: ['', Validators.required],
-      apellido:['', Validators.required],
-      cedula:['', Validators.required],
-      correo:['', Validators.required],
-      telefono:['', Validators.required],
-      direccion:['', Validators.required],
-      contraseña:['', Validators.required],
-      repetirContraseña:['', Validators.required],
-    })
+  constructor(private _formBuilder: FormBuilder, private adminService: AdminServiceService) {
   }
 
   // createAdmin = this._formBuilder.group({
@@ -46,12 +36,23 @@ export class AdminComponent implements OnInit{
   ngOnInit(): void {
     this.getScreenWidth = window.innerWidth;
     this.getScreenHeight = window.innerHeight;
+
+    this.createAdministrador = this._formBuilder.group({
+      nombre: ['', Validators.required],
+      apellido:['', Validators.required],
+      cedula:['', Validators.required],
+      correo:['', Validators.required],
+      telefono:['', Validators.required],
+      direccion:['', Validators.required],
+      contraseña:['', Validators.required],
+      repetirContraseña:['', Validators.required],
+    })
   }
 
-  // agregarAdministrador(){
-  //   this.adminService.agregarAdministrador(this.createAdmin)
-  //   console.log(this.createAdmin)
-  // }
+  agregarAdministrador(){
+    this.adminService.agregarAdministrador(this.createAdministrador)
+    console.log(this.createAdministrador)
+  }
 
   @HostListener('window:resize', ['$event'])
   onWindowResize() {
@@ -61,16 +62,6 @@ export class AdminComponent implements OnInit{
     this.getScreenWidth <= 1169 ? this.mostarSideNav=true : this.mostarSideNav=false;
   
   }
-
-  firstFormGroup = this._formBuilder.group({
-    nombreAdmin: ['', Validators.required],
-    cedulaAdmin: ['', Validators.required,],
-    direccionAdmin: ['', Validators.required],
-    CelularAdmin: ['', Validators.required,],
-    CorreoAdmin: ['', Validators.required],
-    ContrasenaAdmin: ['', Validators.required,],
-    ConfirmacionAdmin: ['', Validators.required],
-  });
  
 
 }

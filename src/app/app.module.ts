@@ -8,7 +8,7 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
-
+import { HttpClientModule } from '@angular/common/http';
 
 const routerConfig: ExtraOptions = {
   preloadingStrategy: PreloadAllModules,
@@ -26,7 +26,7 @@ const routerConfig: ExtraOptions = {
     provideFirebaseApp(() => initializeApp(environment.firebase)), 
     provideAuth(() => getAuth()), 
     provideDatabase(() => getDatabase()),
-    
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -141,7 +141,7 @@
         
                 </mat-form-field>
                 <div class="flex items-center justify-end">
-                    <input type="submit" value="Guardar" class="px-3 py-2 bg-green-700 rounded-xl text-white">
+                    <input type="submit" value="Guardar" class="px-3 py-2 bg-green-700 rounded-xl text-white"(click)="agregarAdministrador()">
                 </div>
             </form>
         </div>
@@ -149,7 +149,7 @@
 </div>
 
 <!-- sidenav RESPONSIVE -->
-<mat-sidenav-container class="example-container" *ngIf="mostarSideNav">
+<!-- <mat-sidenav-container class="example-container" *ngIf="mostarSideNav">
     <mat-sidenav #sidenav [mode]="'over'">
         <div class="w-60 bg-red-700 h-screen ">
 
@@ -259,7 +259,7 @@
                 <span class="uppercase font-bold"> | Registrar Administrador</span>
             </div>
             <div class="mt-3">
-                <form [formGroup]="firstFormGroup" class="flex  flex-wrap mx-16">
+                <form [formGroup]="" class="flex  flex-wrap mx-16">
                     <div class="text-center mt-0 position-relative flex items-center mr-3 w-full sm:w-auto">
                         <div class="image-preview" id="imagePreview">
                             <img src="" alt="Image-Preview" id='imagen' class="image-preview__image d-none w-25 p-1">
@@ -305,4 +305,4 @@
             </div>
         </div>
     </mat-sidenav-content>
-</mat-sidenav-container>
+</mat-sidenav-container> -->
