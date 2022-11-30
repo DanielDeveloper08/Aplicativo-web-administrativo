@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { Auth, signInWithEmailAndPassword } from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor() { }
+  constructor(private auth: Auth) { }
 
   cargar( archivos: string[]){
     for(let archivo of archivos){
@@ -14,5 +15,9 @@ export class AuthService {
       let body = document.getElementsByTagName('body')[0];
       body.appendChild(script);
     }
+  }
+
+  logIn({email, password}: any){
+    return signInWithEmailAndPassword(this.auth, email, password);
   }
 }
