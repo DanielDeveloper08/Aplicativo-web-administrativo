@@ -96,45 +96,45 @@
             <span class="uppercase font-bold"> | Registrar Administrador</span>
         </div>
         <div>
-            <form class="example-form">
+            <form class="example-form" [formGroup]="createAdministrador">
                 <mat-form-field appearance="fill" class="mr-3 w-full sm:w-auto">
                     <mat-label>Nombre</mat-label>
-                    <input matInput  formControlName="firstCtrl"
+                    <input matInput  formControlName="nombre"
                         required>
                 </mat-form-field>
                 <mat-form-field appearance="fill" class="mr-3 w-full sm:w-auto">
-                    <mat-label>Nombre corto</mat-label>
-                    <input matInput  formControlName="firstCtrl"
+                    <mat-label>Apellido</mat-label>
+                    <input matInput  formControlName="apellido"
+                        required>
+                </mat-form-field>
+                <mat-form-field appearance="fill" class="mr-3 w-full sm:w-auto">
+                    <mat-label>Cedula</mat-label>
+                    <input matInput  formControlName="cedula"
                         required>
                 </mat-form-field>
                 <mat-form-field appearance="fill" class="mr-3 w-full sm:w-auto">
                     <mat-label>Correo</mat-label>
-                    <input matInput  formControlName="firstCtrl"
+                    <input matInput  formControlName="correo"
                         required>
                 </mat-form-field>
                 <mat-form-field appearance="fill" class="mr-3 w-full sm:w-auto">
-                    <mat-label>Telefono</mat-label>
-                    <input matInput  formControlName="firstCtrl"
+                    <mat-label>Teléfono</mat-label>
+                    <input matInput  formControlName="telefono"
                         required>
                 </mat-form-field>
                 <mat-form-field appearance="fill" class="mr-3 w-full sm:w-auto">
-                    <mat-label>Nombre</mat-label>
-                    <input matInput  formControlName="firstCtrl"
+                    <mat-label>Dirección</mat-label>
+                    <input matInput  formControlName="direccion"
                         required>
                 </mat-form-field>
                 <mat-form-field appearance="fill" class="mr-3 w-full sm:w-auto">
-                    <mat-label>Nombre corto</mat-label>
-                    <input matInput  formControlName="firstCtrl"
+                    <mat-label>Contraseña</mat-label>
+                    <input matInput  formControlName="contraseña"
                         required>
                 </mat-form-field>
                 <mat-form-field appearance="fill" class="mr-3 w-full sm:w-auto">
-                    <mat-label>Correo</mat-label>
-                    <input matInput  formControlName="firstCtrl"
-                        required>
-                </mat-form-field>
-                <mat-form-field appearance="fill" class="mr-3 w-full sm:w-auto">
-                    <mat-label>Telefono</mat-label>
-                    <input matInput  formControlName="firstCtrl"
+                    <mat-label>Repetir Contraseña</mat-label>
+                    <input matInput  formControlName="repetirContraseña"
                         required>
                 </mat-form-field>
             </form>

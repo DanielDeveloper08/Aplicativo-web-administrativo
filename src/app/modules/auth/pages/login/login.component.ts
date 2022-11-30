@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
@@ -11,11 +11,14 @@ import { AuthService } from '../../services/auth.service';
 export class LoginComponent implements OnInit {
 
   formLogin !: FormGroup;
-
+  // error : string="CORREO O CONTRASEÑA NO VALIDAS";
+  mensajeError: boolean=false;
 
   constructor(private authService: AuthService, private _router: Router) {
     this.formLogin = new FormGroup({
-      email: new FormControl(),
+
+      // Validaciones
+      email: new FormControl('',Validators.email),
       password: new FormControl()
     })
   }
@@ -30,7 +33,12 @@ export class LoginComponent implements OnInit {
       console.log(response);
       this._router.navigateByUrl("admin/home");
     })
-    .catch(error => console.log(error));
+    .catch(error =>{
+        this.mensajeError = true;
+        setTimeout(()=>{
+          this.mensajeError = false;
+        },5000)
+    });
   }
 
 }

@@ -26,10 +26,11 @@
                         <input type="email" formControlName="email" class="form-control mb-4" id="floatingInput" placeholder="name@example.com">
                         <label for="floatingInput" style="font-size: 14px;" class="mb-3"> <i class="bi bi-envelope-fill"></i>
                             &nbsp;Ingrese su correo</label>
-                        <p class="mt-2 d-none" id="pOcultoValidacion"
+                        <!-- <p class="mt-2 d-none" id="pOcultoValidacion"
                             style="color: rgb(236, 35, 35); font-size: 14.5px;">Tu
-                            correo electrónico debe ser: name@example.com</p>
+                            correo electrónico debe ser: name@example.com</p> -->
                     </div>
+                    
                     <div class="form-floating position-relative">
                         <input id="campo-password-valitaion" formControlName="password" type="password" class="form-control"
                             placeholder="Password">
@@ -51,8 +52,15 @@
                             </select>
                         </div>
                     </div>
+
+                    <div class="text-red-600 text-sm mt-3 text-center font-bold" *ngIf="mensajeError">
+                        Correo o contraseña no válido
+                    </div>
+
                     <button (click)="onClickLogin()">Entrar</button>
-                    <div class="error"></div>
+                    <!-- <div class="error"></div> -->
+
+                    
                 </form>
 
                 <!--Register-->

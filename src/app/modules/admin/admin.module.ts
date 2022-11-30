@@ -8,7 +8,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
-
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AdminComponent,
@@ -20,7 +20,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatNativeDateModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatInputModule
-  ]
+    MatInputModule,
+    HttpClientModule
+  ],
+  providers: []
 })
 export class AdminModule { }

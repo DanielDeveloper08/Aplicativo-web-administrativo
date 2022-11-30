@@ -18,7 +18,6 @@ const routerConfig: ExtraOptions = {
 @NgModule({
   declarations: [
     AppComponent,
-
   ],
   imports: [
     BrowserModule,  
@@ -27,6 +26,7 @@ const routerConfig: ExtraOptions = {
     provideFirebaseApp(() => initializeApp(environment.firebase)), 
     provideAuth(() => getAuth()), 
     provideDatabase(() => getDatabase()),
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
