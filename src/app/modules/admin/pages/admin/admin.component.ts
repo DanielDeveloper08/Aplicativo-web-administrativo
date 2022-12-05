@@ -2,6 +2,7 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDrawerMode } from '@angular/material/sidenav';
 import { AdminServiceService } from '../../services/admin.service.service';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-admin',
@@ -32,7 +33,7 @@ export class AdminComponent implements OnInit{
   public getScreenWidth: any;
   public getScreenHeight: any;
   mostarSideNav: boolean = false;
-
+  nombre!: FormControl;
   ngOnInit(): void {
     this.getScreenWidth = window.innerWidth;
     this.getScreenHeight = window.innerHeight;
@@ -44,9 +45,13 @@ export class AdminComponent implements OnInit{
       correo:['', Validators.required],
       telefono:['', Validators.required],
       direccion:['', Validators.required],
-      contraseña:['', Validators.required],
-      repetirContraseña:['', Validators.required],
+      password:['', Validators.required],
+      confirmacion:['', Validators.required],
     })
+
+   this.createAdministrador.valueChanges.subscribe(data=>{
+    console.log(data);
+   })
   }
 
   agregarAdministrador(){
@@ -62,6 +67,18 @@ export class AdminComponent implements OnInit{
     this.getScreenWidth <= 1169 ? this.mostarSideNav=true : this.mostarSideNav=false;
   
   }
+
+  
+  ELEMENT_DATA: any[] = [
+    { date: 'foto', typeProduct: 'Daniel', product: "Asanza", price: 'dasanza79@gmail.com'},
+    { date: 'foto', typeProduct: 'Miguel', product: "Jaramillo", price: 'miguel74@gmail.com' },
+    { date: 'foto', typeProduct: 'Josue', product:  "Cadena", price:'josue14@gmail.com'  },
+    { date: 'foto', typeProduct: 'Carlos', product: "Martinez", price: 'carlos23@gmail.com' },
+    { date: 'foto', typeProduct: 'Daniel', product: "Asanza", price: 'dasanza79@gmail.com'},
+  ];
+
+  displayedColumns: string[] = ['date', 'typeProduct', 'price', 'actions'];
+  dataSource = new MatTableDataSource<any>(this.ELEMENT_DATA);
  
 
 }

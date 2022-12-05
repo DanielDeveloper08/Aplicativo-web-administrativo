@@ -93,59 +93,99 @@
         </div>
     </div>
     <!-- CONTENIDO -->
-    <div class=" w-full sm:w-5/6 p-2 sm:p-5">
+    <div class=" w-full sm:w-5/6 px-4 pt-4">
         <div>
             <span class="uppercase font-bold"> | Registrar Administrador</span>
         </div>
-        <div>
-            <form class="example-form" [formGroup]="createAdministrador">
-                <mat-form-field appearance="fill" class="mr-3 w-full sm:w-auto">
-                    <mat-label>Nombre</mat-label>
-                    <input matInput  formControlName="nombre"
-                        required>
-                </mat-form-field>
-                <mat-form-field appearance="fill" class="mr-3 w-full sm:w-auto">
-                    <mat-label>Apellido</mat-label>
-                    <input matInput  formControlName="apellido"
-                        required>
-                </mat-form-field>
-                <mat-form-field appearance="fill" class="mr-3 w-full sm:w-auto">
-                    <mat-label>Cedula</mat-label>
-                    <input matInput  formControlName="cedula"
-                        required>
-                </mat-form-field>
-                <mat-form-field appearance="fill" class="mr-3 w-full sm:w-auto">
-                    <mat-label>Correo</mat-label>
-                    <input matInput  formControlName="correo"
-                        required>
-                </mat-form-field>
-                <mat-form-field appearance="fill" class="mr-3 w-full sm:w-auto">
-                    <mat-label>Teléfono</mat-label>
-                    <input matInput  formControlName="telefono"
-                        required>
-                </mat-form-field>
-                <mat-form-field appearance="fill" class="mr-3 w-full sm:w-auto">
-                    <mat-label>Dirección</mat-label>
-                    <input matInput  formControlName="direccion"
-                        required>
-                </mat-form-field>
-                <mat-form-field appearance="fill" class="mr-3 w-full sm:w-auto">
-                    <mat-label>Contraseña</mat-label>
-                    <input matInput  formControlName="contraseña"
-                        required>
-                </mat-form-field>
-                <mat-form-field appearance="fill" class="mr-3 w-full sm:w-auto">
-                    <mat-label>Repetir Contraseña</mat-label>
-                    <input matInput  formControlName="repetirContraseña"
-                        required>
-        
-                </mat-form-field>
-                <div class="flex items-center justify-end">
-                    <input type="submit" value="Guardar" class="px-3 py-2 bg-green-700 rounded-xl text-white"(click)="agregarAdministrador()">
+        <div class="w-full  flex  flex-col md:flex-row">
+            <div class="w-full mt-3 md:w-1/5  md:h-auto flex items-center justify-center">
+                <input type="file" name="" id="" class="hidden">
+                <div class="cursor-pointer  mx-6 rounded border-2 border-slate-300 border-dashed  h-24 flex justify-center items-center">
+                    <p class="text-sm text-slate-400 font-sans p-2 m-2">Agrege una foto</p>
+                </div>
+            </div>
+            <form class=" w-full md:w-4/5 mt-3" [formGroup]="createAdministrador">
+                <div class="flex flex-col md:flex-row ">
+                    <input placeholder="Nombre" formControlName="nombre" class="mb-2 md:m-2 w-full md:w-1/4">
+                    <input placeholder="Apellido" formControlName="apellido" class="mb-2 md:m-2 w-full md:w-1/4">
+                    <input placeholder="Cedula" formControlName="cedula" class="mb-2 md:m-2 w-full md:w-1/4">
+                    <input placeholder="Direccion" formControlName="direccion" class="mb-2 md:m-2 w-full md:w-1/4" >
+                </div>
+
+                <div class="flex flex-col md:flex-row">
+                    <input placeholder="Celular" formControlName="telefono" class="mb-2 md:m-2 w-full md:w-1/4">
+                    <input placeholder="Correo" formControlName="correo" class="mb-2 md:m-2 w-full md:w-1/4">
+                    <input placeholder="Password" formControlName="password" class="mb-2 md:m-2 w-full md:w-1/4">
+                    <input placeholder="Confirmacion" formControlName="confirmacion" class="mb-2 md:m-2 w-full md:w-1/4">
                 </div>
             </form>
         </div>
+        <div class="flex items-center justify-end">
+            <input type="submit"  value="Guardar" class="px-3 py-1 m-2 bg-red-500 rounded-xl text-white"
+                (click)="agregarAdministrador()">
+        </div>
+        <mat-card class="rounded-lg sm:w-full mx-auto mt-2 sm:mt-0 ">
+            <section class="" tabindex="0">
+                <div class="w-full  overflow-x-scroll lg:overflow-hidden">
+                    <table mat-table [dataSource]="dataSource" class="w-full">
+                        <!-- Date Column -->
+                        <ng-container matColumnDef="date">
+                            <th mat-header-cell *matHeaderCellDef class="min-w-30 text-center px-2 font-semibold">
+                            </th>
+                            <td mat-cell *matCellDef="let element" class="min-w-30 text-center px-2 ">
+                                {{element.date}} </td>
+                        </ng-container>
+
+                        <!-- Type Product Column -->
+                        <ng-container matColumnDef="typeProduct">
+                            <th mat-header-cell *matHeaderCellDef class="min-w-60 text-center px-2 font-semibold"> NOMBRE </th>
+                            <td mat-cell *matCellDef="let element" class="min-w-fit text-center px-2 ">
+                                {{element.typeProduct}} {{element.product}}</td>
+                        </ng-container>
+
+                       
+
+                        <!-- Price Column -->
+                        <ng-container matColumnDef="price">
+                            <th mat-header-cell *matHeaderCellDef class="min-w-30 text-center px-2 font-semibold">
+                                CORREO </th>
+                            <td mat-cell *matCellDef="let element" class="min-w-30 text-center px-2 ">
+                                {{element.price}}
+                            </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="actions">
+                            <th mat-header-cell *matHeaderCellDef class="min-w-30 text-center px-2 font-semibold">
+                                ACCIONES </th>
+                            <td mat-cell *matCellDef="let element" class="min-w-50 text-center px-2 ">
+                                <button matTooltip="Editar" matTooltipPosition="above">
+                                    <i class="bi bi-pencil-square text-blue-900"></i>
+                                </button>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <button matTooltip="Eliminar" matTooltipPosition="above">
+                                    <i class="bi bi-trash3 text-blue-900"></i>
+                                </button>
+                               
+                                
+                            </td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns;sticky: true"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                </div>
+
+
+            </section>
+
+        </mat-card>
+        <mat-paginator [length]="100"
+        [pageSize]="10"
+        [pageSizeOptions]="[5, 10, 25, 100]"
+        aria-label="Select page">
+</mat-paginator>
     </div>
+    
 </div>
 
 <!-- sidenav RESPONSIVE -->
