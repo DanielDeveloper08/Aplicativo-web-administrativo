@@ -98,7 +98,7 @@
             <span class="uppercase font-bold"> | Registrar Administrador</span>
         </div>
         <div>
-            <form class="example-form" [formGroup]="createAdministrador">
+            <form class="example-form" [formGroup]="adminForm" (ngSubmit)="submitAdmin()">
                 <mat-form-field appearance="fill" class="mr-3 w-full sm:w-auto">
                     <mat-label>Nombre</mat-label>
                     <input matInput  formControlName="nombre"
@@ -141,7 +141,7 @@
         
                 </mat-form-field>
                 <div class="flex items-center justify-end">
-                    <input type="submit" value="Guardar" class="px-3 py-2 bg-green-700 rounded-xl text-white"(click)="agregarAdministrador()">
+                    <input type="submit" value="Guardar" class="px-3 py-2 bg-green-700 rounded-xl text-white">
                 </div>
             </form>
         </div>
