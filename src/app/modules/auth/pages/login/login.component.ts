@@ -10,7 +10,7 @@ import { AuthService } from '../../services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  formLogin !: FormGroup;
+  formLogin : FormGroup;
   // error : string="CORREO O CONTRASEÑA NO VALIDAS";
   mensajeError: boolean=false;
 

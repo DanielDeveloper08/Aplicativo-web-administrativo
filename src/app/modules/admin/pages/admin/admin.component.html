@@ -97,6 +97,7 @@
         <div>
             <span class="uppercase font-bold"> | Registrar Administrador</span>
         </div>
+
         <div class="w-full  flex  flex-col md:flex-row">
             <div class="w-full mt-3 md:w-1/5  md:h-auto flex items-center justify-center">
                 <input type="file" name="" id="" class="hidden">
@@ -104,7 +105,7 @@
                     <p class="text-sm text-slate-400 font-sans p-2 m-2">Agrege una foto</p>
                 </div>
             </div>
-            <form class=" w-full md:w-4/5 mt-3" [formGroup]="createAdministrador">
+             <form class="example-form" [formGroup]="adminForm" (ngSubmit)="submitAdmin()">
                 <div class="flex flex-col md:flex-row ">
                     <input placeholder="Nombre" formControlName="nombre" class="mb-2 md:m-2 w-full md:w-1/4">
                     <input placeholder="Apellido" formControlName="apellido" class="mb-2 md:m-2 w-full md:w-1/4">
@@ -115,14 +116,13 @@
                 <div class="flex flex-col md:flex-row">
                     <input placeholder="Celular" formControlName="telefono" class="mb-2 md:m-2 w-full md:w-1/4">
                     <input placeholder="Correo" formControlName="correo" class="mb-2 md:m-2 w-full md:w-1/4">
-                    <input placeholder="Password" formControlName="password" class="mb-2 md:m-2 w-full md:w-1/4">
-                    <input placeholder="Confirmacion" formControlName="confirmacion" class="mb-2 md:m-2 w-full md:w-1/4">
+                    <input placeholder="Password" formControlName="contraseña" class="mb-2 md:m-2 w-full md:w-1/4">
+                    <input placeholder="Confirmacion" formControlName="repetirContraseña" class="mb-2 md:m-2 w-full md:w-1/4">
                 </div>
             </form>
         </div>
         <div class="flex items-center justify-end">
-            <input type="submit"  value="Guardar" class="px-3 py-1 m-2 bg-red-500 rounded-xl text-white"
-                (click)="agregarAdministrador()">
+            <input type="submit"  value="Guardar" class="px-3 py-1 m-2 bg-red-500 rounded-xl text-white">
         </div>
         <mat-card class="rounded-lg sm:w-full mx-auto mt-2 sm:mt-0 ">
             <section class="" tabindex="0">
