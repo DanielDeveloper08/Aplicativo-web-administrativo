@@ -1,9 +1,12 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDrawerMode } from '@angular/material/sidenav';
+
 import { windowTime } from 'rxjs';
 import { Administrador } from '../../shared/administrador';
 import { AdministradorService } from '../../shared/administrador.service';
+import { MatTableDataSource } from '@angular/material/table';
+
 
 @Component({
   selector: 'app-admin',
@@ -32,7 +35,7 @@ export class AdminComponent implements OnInit{
   public getScreenWidth: any;
   public getScreenHeight: any;
   mostarSideNav: boolean = false;
-
+  nombre!: FormControl;
   ngOnInit(): void {
     this.getScreenWidth = window.innerWidth;
     this.getScreenHeight = window.innerHeight;
@@ -43,7 +46,12 @@ export class AdminComponent implements OnInit{
     this.adminForm.reset();
     Object.keys(this.adminForm.controls).forEach((key) =>{
       this.adminForm.controls[key].setErrors(null);
+
     })
+
+   this.createAdministrador.valueChanges.subscribe(data=>{
+    console.log(data);
+   })
   }
 
   // submit admin
@@ -60,6 +68,21 @@ export class AdminComponent implements OnInit{
     this.getScreenHeight = window.innerHeight;
     this.getScreenWidth <= 1169 ? this.mostarSideNav=true : this.mostarSideNav=false;
   }
+
+
+  
+  ELEMENT_DATA: any[] = [
+    { date: 'foto', typeProduct: 'Daniel', product: "Asanza", price: 'dasanza79@gmail.com'},
+    { date: 'foto', typeProduct: 'Miguel', product: "Jaramillo", price: 'miguel74@gmail.com' },
+    { date: 'foto', typeProduct: 'Josue', product:  "Cadena", price:'josue14@gmail.com'  },
+    { date: 'foto', typeProduct: 'Carlos', product: "Martinez", price: 'carlos23@gmail.com' },
+    { date: 'foto', typeProduct: 'Daniel', product: "Asanza", price: 'dasanza79@gmail.com'},
+  ];
+
+  displayedColumns: string[] = ['date', 'typeProduct', 'price', 'actions'];
+  dataSource = new MatTableDataSource<any>(this.ELEMENT_DATA);
+ 
+
 
   // Delete
   
