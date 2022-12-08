@@ -9,6 +9,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatStepperModule} from '@angular/material/stepper';
+import { UniversidadService } from './shared/universidad.service';
 
 
 @NgModule({
@@ -24,6 +25,9 @@ import {MatStepperModule} from '@angular/material/stepper';
     ReactiveFormsModule,
     MatInputModule,
     MatStepperModule
-  ]
+
+    
+  ],
+  providers:[UniversidadService]
 })
 export class UniversityModule { }

@@ -139,10 +139,10 @@
         </div>
         <div>
             <mat-stepper class="example-stepper" [orientation]="(stepperOrientation | async)!">
-                <mat-step [stepControl]="firstFormGroup" label="Datos universidad">
-                    <form [formGroup]="firstFormGroup" class="flex justify-center flex-wrap mx-16 ">
+                <mat-step [stepControl]="universdidadForm" label="Datos universidad">
+                    <form [formGroup]="universdidadForm"  class="flex justify-center flex-wrap mx-16 ">
 
-                        <div class="text-center mt-0 position-relative flex items-center mr-3 w-full sm:w-auto">
+                        <!-- <div class="text-center mt-0 position-relative flex items-center mr-3 w-full sm:w-auto">
                             <div class="image-preview" id="imagePreview">
                                 <img src="" alt="Image-Preview" id='imagen'
                                     class="image-preview__image d-none w-25 p-1">
@@ -152,46 +152,47 @@
                                 <button class="btn bg-gray-600 text-white hover:bg-gray-700 " id="attachment"><i
                                         class="bi bi-image"></i>&nbsp; Cargar foto</button>
                             </div>
-                        </div>
+                        </div> -->
                         <mat-form-field appearance="fill" class="mr-3 w-full sm:w-auto">
                             <mat-label>Nombre</mat-label>
-                            <input matInput formControlName="firstCtrl" required>
+                            <input matInput formControlName="nombre_Universidad" required>
                         </mat-form-field>
                         <mat-form-field appearance="fill" class="mr-3 w-full sm:w-auto">
                             <mat-label>Nombre corto</mat-label>
-                            <input matInput formControlName="firstCtrl" required>
+                            <input matInput formControlName="nombreCorto_Universidad" required>
                         </mat-form-field>
                         <mat-form-field appearance="fill" class="mr-3 w-full sm:w-auto">
                             <mat-label>Correo</mat-label>
-                            <input matInput formControlName="firstCtrl" required>
+                            <input matInput formControlName="correo_Universidad" required>
                         </mat-form-field>
                         <mat-form-field appearance="fill" class="mr-3 w-full sm:w-auto">
                             <mat-label>Telefono</mat-label>
-                            <input matInput formControlName="firstCtrl" required>
+                            <input matInput formControlName="telefono_Universidad" required>
                         </mat-form-field>
                         <mat-form-field appearance="fill" class="mr-3 w-full sm:w-auto">
                             <mat-label>Direccion</mat-label>
-                            <input matInput formControlName="firstCtrl" required>
+                            <input matInput formControlName="direccion_Universidad" required>
                         </mat-form-field>
                         <mat-form-field appearance="fill" class="mr-3 w-full sm:w-auto">
                             <mat-label>Url</mat-label>
-                            <input matInput formControlName="firstCtrl" required>
+                            <input matInput formControlName="url_Universidad" required>
                         </mat-form-field>
                         <mat-form-field appearance="fill" class="mr-3 w-full sm:w-auto">
                             <mat-label>Director</mat-label>
-                            <input matInput formControlName="firstCtrl" required>
+                            <input matInput formControlName="director_Universidad" required>
                         </mat-form-field>
 
                     </form>
                     <div class="flex justify-end">
                         <div class="bg-red-500 p-2 rounded text-white w-3/4 sm:w-auto text-center">
-                            <button mat-button matStepperNext>Siguiente</button>
+                            <button mat-button matStepperNext>Siguiente</button>                            
                         </div>
-
+                        <!-- <button mat-button
+                        class="bg-red-500 p-2 rounded text-white w-3/4 sm:w-auto text-center" (click)="submitUniversidad()">Guardar</button> -->
                     </div>
                 </mat-step>
-                <mat-step [stepControl]="secondFormGroup" label="Datos facultad">
-                    <form [formGroup]="secondFormGroup" class="flex justify-center flex-wrap mx-11">
+                <mat-step [stepControl]="facultadForm" label="Datos facultad">
+                    <form [formGroup]="facultadForm" class="flex justify-center flex-wrap mx-11">
                         <div class="text-center mt-0 position-relative flex items-center mr-3 w-full sm:w-auto">
                             <div class="image-preview" id="imagePreview">
                                 <img src="" alt="Image-Preview" id='imagen'
@@ -240,8 +241,8 @@
                             class="bg-red-500 p-2 rounded text-white w-3/4 sm:w-auto text-center">Siguiente</button>
                     </div>
                 </mat-step>
-                <mat-step [stepControl]="thirdFormGroup" label="Datos de carrera">
-                    <form [formGroup]="thirdFormGroup" class="flex justify-center flex-wrap mx-11">
+                <mat-step [stepControl]="carreraForm" label="Datos de carrera">
+                    <form [formGroup]="carreraForm" class="flex justify-center flex-wrap mx-11">
                         <div class="text-center mt-0 position-relative flex items-center mr-3 w-full sm:w-auto">
                             <div class="image-preview" id="imagePreview">
                                 <img src="" alt="Image-Preview" id='imagen'
@@ -284,7 +285,7 @@
                             <button mat-button matStepperPrevious
                                 class="bg-black p-2 rounded text-white w-3/4 sm:w-auto text-center mr-2">Anterior</button>
                             <button mat-button
-                                class="bg-red-500 p-2 rounded text-white w-3/4 sm:w-auto text-center">Guardar</button>
+                                class="bg-red-500 p-2 rounded text-white w-3/4 sm:w-auto text-center" (click)="submitUniversidad()">Guardar</button>
                         </div>
                 
                 </mat-step>
